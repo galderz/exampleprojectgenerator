@@ -21,9 +21,7 @@
     </modules>
 
     <properties>
-            <classes>1000</classes>
+        <classes>1000</classes>
     </properties>
-
-
 
 </project>

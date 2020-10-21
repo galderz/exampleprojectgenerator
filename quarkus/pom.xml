@@ -45,7 +45,7 @@
     <dependencies>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
+            <artifactId>quarkus-resteasy</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -83,7 +83,7 @@
                 </executions>
                 <configuration>
                     <templates>
-                        <param>RestEndpoint.ftl</param>
+                        <!--<param>RestEndpoint.ftl</param>-->
                         <param>Fruit.ftl</param>
                     </templates>
                     <copies>${classes}</copies>
@@ -117,4 +117,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- Produce a native image running: mvn -P native -->
+        <profile>
+            <id>native</id>
+            <properties>
+                <quarkus.native.enable-reports>true</quarkus.native.enable-reports>
+                <quarkus.package.type>native</quarkus.package.type>
+                <!-- You might need to give it extra memory: -->
+                <quarkus.native.additional-build-args><!-- -J-Xmx40G--></quarkus.native.additional-build-args>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>

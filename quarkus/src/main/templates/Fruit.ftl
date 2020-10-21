@@ -29,6 +29,11 @@ public class Fruit${no} {
     @Column(length = 40, unique = true)
     private String name;
 
+<#list 1..30 as l>
+    @Column(name = "VERY_LONG_STRING_COLUMN_NAME_${l}")
+    private String attr_${l};
+
+</#list>
     public Fruit${no}() {
     }
 
@@ -44,11 +49,14 @@ public class Fruit${no} {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+<#list 1..30 as l>
+    public String getAttr${l}() {
+        return attr_${l};
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAttr${l}(String name) {
+        this.attr_${l} = name;
     }
+
+</#list>
 }
