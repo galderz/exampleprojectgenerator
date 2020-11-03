@@ -126,7 +126,7 @@
                 <quarkus.native.enable-reports>true</quarkus.native.enable-reports>
                 <quarkus.package.type>native</quarkus.package.type>
                 <!-- You might need to give it extra memory: -->
-                <quarkus.native.additional-build-args><!-- -J-Xmx40G--></quarkus.native.additional-build-args>
+                <quarkus.native.additional-build-args>-J-Xmx40G</quarkus.native.additional-build-args>
             </properties>
         </profile>
     </profiles>
