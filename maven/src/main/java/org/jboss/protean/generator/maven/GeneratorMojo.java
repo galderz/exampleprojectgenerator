@@ -47,6 +47,8 @@ public class GeneratorMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException, MojoFailureException {
+        System.out.println("Number of classes generated: " + copies);
+
         File output = new File(generatedSourcesDirectory, "com" + File.separator + "test" + File.separator);
         output.mkdirs();
         project.addCompileSourceRoot(generatedSourcesDirectory.getAbsolutePath());
